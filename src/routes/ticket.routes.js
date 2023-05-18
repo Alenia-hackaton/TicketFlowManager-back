@@ -8,4 +8,7 @@ ticketRouter.get("/", TicketController.getAllTickets);
 // Route to change status
 ticketRouter.put("/:id", TicketController.updateTicket)
 
+// Route to get by id
+ticketRouter.get("/:id", TicketController.getTicketById)
+
 module.exports = ticketRouter;
