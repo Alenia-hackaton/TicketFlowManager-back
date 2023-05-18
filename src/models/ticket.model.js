@@ -13,7 +13,14 @@ const updateStatus = (id, ticket_status) => {
     .then(([results]) => (results));
 }
 
+const getById = (id) => {
+  return database
+  .query("SELECT * FROM tickets WHERE id = ?", [id])
+  .then(([results]) => results);
+}
+
 module.exports = {
     getAll,
-    updateStatus
+    updateStatus,
+    getById
 };
