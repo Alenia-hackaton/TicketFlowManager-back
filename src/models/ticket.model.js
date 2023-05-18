@@ -19,8 +19,17 @@ const getById = (id) => {
   .then(([results]) => results);
 }
 
+const createTicket = (ticket) => {
+  return database
+    .query(
+      "INSERT INTO tickets set ?", ticket
+    )
+    .then(([results]) => results);
+};
+
 module.exports = {
     getAll,
     updateStatus,
-    getById
+    getById, 
+    createTicket
 };

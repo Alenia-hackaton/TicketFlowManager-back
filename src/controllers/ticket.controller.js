@@ -49,8 +49,25 @@ const getTicketById = (req, res) => {
     });
 }
 
+const postNewTicket = (req, res) => {
+  Ticket.createTicket(req.body)
+  .then((result) => {
+      if (result) {
+        console.log(result)
+        res.status(200).json(result);
+      } else {
+        res.status(404).send("Ticket not found.");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error updating ticket");
+    });
+};
+
 module.exports = {
   getAllTickets,
   updateTicket,
-  getTicketById
+  getTicketById,
+  postNewTicket
 };

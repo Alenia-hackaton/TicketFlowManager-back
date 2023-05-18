@@ -11,4 +11,7 @@ ticketRouter.put("/:id", TicketController.updateTicket)
 // Route to get by id
 ticketRouter.get("/:id", TicketController.getTicketById)
 
+// Route to post new ticket
+ticketRouter.post("/", TicketController.postNewTicket)
+
 module.exports = ticketRouter;
