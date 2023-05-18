@@ -15,6 +15,24 @@ const getAllTickets = (req, res) => {
     });
 }
 
+const updateTicket = (req, res) => {
+    const { id } = req.params;
+    const { ticket_status } = req.body;
+    Ticket.updateStatus(id, ticket_status)
+    .then((result) => {
+        if (result) {
+          res.status(200).json(result);
+        } else {
+          res.status(404).send("Ticket not found.");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error updating ticket");
+      });
+  };
+
 module.exports = {
-    getAllTickets
+    getAllTickets,
+    updateTicket
 }
