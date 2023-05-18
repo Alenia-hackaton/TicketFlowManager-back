@@ -5,17 +5,19 @@ const port = process.env.APP_PORT;
 const ticketRouter = require('./routes/index.routes');
 
 const app = express();
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Welcome to the ticket server');
-});
 
 app.use(
   cors({
     origin: 'http://localhost:3000',
   })
 );
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the ticket server');
+});
+
 
 ticketRouter(app);
 

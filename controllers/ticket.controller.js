@@ -21,6 +21,7 @@ const updateTicket = (req, res) => {
     Ticket.updateStatus(id, ticket_status)
     .then((result) => {
         if (result) {
+          console.log(result)
           res.status(200).json(result);
         } else {
           res.status(404).send("Ticket not found.");
