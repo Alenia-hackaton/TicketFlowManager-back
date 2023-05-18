@@ -1,9 +1,7 @@
-const database = require("../database");
+const database = require("../../database");
 
 const getAll = () => {
-    return database
-    .query("SELECT * FROM tickets")
-    .then(([results]) => results);
+  return database.query("SELECT * FROM tickets").then(([results]) => results);
 };
 
 const updateStatus = (id, ticket_status) => {
